@@ -8,9 +8,7 @@
 # All rights reserved.
 
 from typing import Union
-
 from pyrogram.types import InlineKeyboardButton
-
 from config import GITHUB_REPO, SUPPORT_CHANNEL, SUPPORT_GROUP
 from YukkiMusic import app
 
@@ -24,6 +22,12 @@ def start_pannel(_):
             ),
             InlineKeyboardButton(
                 text=_["S_B_2"], callback_data="settings_helper"
+            ),
+        ],
+        [
+            # Chatbot button added in start panel
+            InlineKeyboardButton(
+                text="Chatbot 🤖", callback_data="chatbot_setup"
             ),
         ],
     ]
@@ -63,7 +67,11 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
         [
             InlineKeyboardButton(
                 text=_["S_B_8"], callback_data="settings_back_helper"
-            )
+            ),
+            # Chatbot button added in private panel
+            InlineKeyboardButton(
+                text="Chatbot 🤖", callback_data="chatbot_setup"
+            ),
         ]
     ]
     if SUPPORT_CHANNEL and SUPPORT_GROUP:
