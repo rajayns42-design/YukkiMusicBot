@@ -1,4 +1,4 @@
-name : 🏴󠁧󠁢󠁥󠁮󠁧󠁿 English
+name : 🏴󠁧󠁢󠁥󠁮󠁧U+E007F English
 
 # General Strings
 general_1 : "Reply to a user's message or give username/user_id."
@@ -224,7 +224,7 @@ song_11 : "Uploading Started\n\nUploading speed could be slow. Please hold on.."
 # Tools - Queue
 queue_1 : "Please Wait..Fetching Queue.."
 queue_2 : "Queued List is empty. No tracks found"
-queue_3 : "<u>**Queued Tracks:</u>**  [Checkout More Queued Tracks From Here]({0})"
+queue_3 : "<u>**Queued Tracks:</u>** [Checkout More Queued Tracks From Here]({0})"
 queue_4 : "⏳ Added to Queue at **#{0}\n\n💡Title:** {1}\n**⏱Duration:** {2}\n👤**Added By:** {3}"
 queue_5 : "Only one track inside queue, Please add some more to check list"
 
@@ -261,7 +261,7 @@ H_B_2 : "Play Commands"
 H_B_3 : "Bot Commands"
 H_B_4 : "Extra Commands"
 H_B_5 : "Close Menu"
-H_B_6 : "SudoUser Commands"
+H_B_6 : "Chatbot 🤖"
 
 #PlayMode
 PM_B_1 : "DirectPlay"
@@ -334,6 +334,9 @@ SA_B_8 : "🤖 Bot Stats"
 #Queue
 QU_B_1 : "📑 Queued List"
 QU_B_2 : "Played {0} out of {1} Mins"
+
+# Chatbot Description
+hb6 : "✨ **Unlimited Flirty Chatbot** ✨\n\nMain group aur private mein har message ka fast aur romantic reply de sakti hoon.\n\n/chatbot [on/off] - Chatbot ko control karein.\n/chat [on/off] - Shortcut command.\n\n**Note:** Har message ka reply bina tag kiye milega! 😘"
 
 # Sudo Users [ If you are translating this to some other language .. you can leave all these strings in english language]
 
