@@ -15,46 +15,54 @@ async def toggle_chatbot(_, message):
     
     if is_on:
         chatbot_status[chat_id] = False
-        await message.reply_text("❌ **Auto-Reply OFF!**\nAb main baatein nahi karungi.")
+        await message.reply_text("❌ **Chatbot OFF!**\nAb main chup ho gayi hoon. 🥺")
     else:
         chatbot_status[chat_id] = True
-        await message.reply_text("✅ **Auto-Reply ON!**\nChalo baby, unlimited baatein shuru karte hain.. 😘")
+        await message.reply_text("✅ **Chatbot ON!**\nAa gayi main! Ab sirf tumhari aur meri baatein hongi... 😘")
 
-# --- 2. Button Handler: Menu control ke liye ---
+# --- 2. Button Handler (For Help Menu) ---
 @app.on_callback_query(filters.regex("chatbot_setup"))
 async def cb_chatbot_setup(client, query: CallbackQuery):
     chat_id = query.message.chat.id
     is_on = chatbot_status.get(chat_id, True)
     status_text = "✅ ACTIVE" if is_on else "❌ INACTIVE"
     
-    await query.answer("Fast Reply Menu", show_alert=True)
+    await query.answer("Romantic Chatbot Menu", show_alert=True)
     await query.edit_message_text(
-        f"🚀 **Fast & Unlimited Chatbot**\n\n"
-        f"Status: **{status_text}**\n\n"
-        "Ye bot group aur private mein har message ka turant romantic reply dega.\n\n"
-        "🔹 ON karne ke liye: `/chatbot on` \n"
-        "🔹 OFF karne ke liye: `/chatbot off`"
+        f"🚀 **Desi Romantic Chatbot**\n\n"
+        f"Current Status: **{status_text}**\n\n"
+        "Main har message ka fast aur flirty reply dungi.\n\n"
+        "🔹 Turn ON: `/chatbot on` \n"
+        "🔹 Turn OFF: `/chatbot off`"
     )
 
-# --- 3. Unlimited Auto-Reply Logic ---
+# --- 3. Unlimited Desi Flirting Logic ---
 @app.on_message(filters.text & ~filters.bot, group=10)
 async def fast_ai_reply(client, message):
     chat_id = message.chat.id
     
-    # Check status
+    # Status Check
     if not chatbot_status.get(chat_id, True):
         return
 
-    # Commands ignore karein
+    # Ignore Commands
     if message.text.startswith(("/", "!", ".")):
         return
 
-    # Typing action (Fast feel ke liye)
+    # Show Typing Action
     await client.send_chat_action(chat_id, ChatAction.TYPING)
 
-    # Raw Flirting Prompt
+    # UPDATED: More Desi & Romantic Prompt
     user_input = message.text
-    api_url = f"https://api.punjabimunda.workers.dev/chat?query=Act as a highly flirty and romantic partner. Use Hinglish. Give very fast, short and sexy replies. No names. Message: {user_input}"
+    prompt = (
+        "Act as a very romantic, naughty and caring Indian partner. "
+        "Use pure Hinglish (Hindi + English mix). "
+        "Keep replies short, fast, and very sweet. "
+        "Use emojis like ❤️, 😘, 🙈. Don't use any names. "
+        f"User said: {user_input}"
+    )
+    
+    api_url = f"https://api.punjabimunda.workers.dev/chat?query={prompt}"
 
     try:
         response = requests.get(api_url).json()
@@ -63,5 +71,4 @@ async def fast_ai_reply(client, message):
         if reply:
             await message.reply_text(reply)
     except:
-        # Fallback agar API down ho
         pass
