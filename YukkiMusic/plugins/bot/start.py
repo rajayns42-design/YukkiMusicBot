@@ -193,25 +193,29 @@ async def start_comm(client, message: Message, _):
         except:
             OWNER = None
         out = private_panel(_, app.username, OWNER)
-        if config.START_IMG_URL:
-            try:
-                await message.reply_photo(
-                    photo=config.START_IMG_URL,
-                    caption=_["start_2"].format(
-                        config.MUSIC_BOT_NAME
-                    ),
-                    reply_markup=InlineKeyboardMarkup(out),
-                )
-            except:
-                await message.reply_text(
-                    _["start_2"].format(config.MUSIC_BOT_NAME),
-                    reply_markup=InlineKeyboardMarkup(out),
-                )
-        else:
+        
+        # --- Photo Logic Change Starts Here ---
+        try:
+            if message.from_user.photo:
+                # Agar user ki photo hai toh wahi uthayega
+                photo = message.from_user.photo.big_file_id
+            else:
+                # Agar DP nahi hai toh config link use karega
+                photo = config.START_IMG_URL if config.START_IMG_URL else "https://telegra.ph/file/default_image.jpg"
+            
+            await message.reply_photo(
+                photo=photo,
+                caption=_["start_2"].format(config.MUSIC_BOT_NAME),
+                reply_markup=InlineKeyboardMarkup(out),
+            )
+        except:
+            # Safe Fallback
             await message.reply_text(
                 _["start_2"].format(config.MUSIC_BOT_NAME),
                 reply_markup=InlineKeyboardMarkup(out),
             )
+        # --- Photo Logic Change Ends Here ---
+
         if await is_on_off(config.LOG):
             sender_id = message.from_user.id
             sender_name = message.from_user.first_name
