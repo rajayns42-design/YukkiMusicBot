@@ -8,11 +8,8 @@
 # All rights reserved.
 
 from typing import Union
-
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
 from YukkiMusic import app
-
 
 def help_pannel(_, START: Union[bool, int] = None):
     first = [
@@ -57,6 +54,11 @@ def help_pannel(_, START: Union[bool, int] = None):
                     text=_["H_B_6"],
                     callback_data="help_callback hb5",
                 ),
+                # Chatbot Button in Main Help
+                InlineKeyboardButton(
+                    text="Chatbot 🤖",
+                    callback_data="chatbot_setup",
+                ),
             ],
             mark,
         ]
@@ -83,6 +85,12 @@ def help_back_markup(_):
 
 def private_help_panel(_):
     buttons = [
+        [
+            InlineKeyboardButton(
+                text="Chatbot 🤖",
+                callback_data="chatbot_setup",
+            ),
+        ],
         [
             InlineKeyboardButton(
                 text=_["S_B_1"],
