@@ -39,7 +39,7 @@ Auth Users can use admin commands without admin rights in your chat.
 /authusers - Check AUTH LIST of the group."""
 
 
-HELP_2 = """✅<u>**Play Commands:**</u>
+HELP_2 = """✅<u>**Play Commands:</u>**
 
 Available Commands = play , vplay , cplay
 
@@ -62,7 +62,7 @@ ForcePlay Commands = playforce , vplayforce , cplayforce
 /play  - Start playing Your Saved Playlist from Servers."""
 
 
-HELP_3 = """✅<u>**Bot Commands:**</u>
+HELP_3 = """✅<u>**Bot Commands:</u>**
 
 /stats - Get Top 10 Tracks Global Stats, Top 10 Users of bot, Top 10 Chats on bot, Top 10 Played in a chat etc etc.
 
@@ -78,12 +78,12 @@ HELP_3 = """✅<u>**Bot Commands:**</u>
 
 /queue or /cqueue- Check Queue List of Music."""
 
-HELP_4 = """✅<u>**Extra  Commands:**</u>
+HELP_4 = """✅<u>**Extra  Commands:</u>**
 /start - Start the Music Bot.
 /help  - Get Commands Helper Menu with detailed explanations of commands.
 /ping- Ping the Bot and check Ram, Cpu etc stats of Bot.
 
-✅<u>**Group Settings:**</u>
+✅<u>**Group Settings:</u>**
 /settings - Get a complete group's settings with inline buttons
 
 🔗 **Options in Settings:**
@@ -173,3 +173,25 @@ HELP_5 = """🔰**<u>ADD & REMOVE SUDO USERS :</u>**
 **Example:** `/broadcast -user -assistant -pin Hello Testing`
 
 """
+
+HELP_6 = """✅**<u>Chatbot Commands:</u>**
+
+Main ek unlimited flirty chatbot feature ke saath aati hoon jo Group aur Private dono jagah kaam karta hai.
+
+/chatbot [on/off] - Chatbot ko chalu ya band karne ke liye.
+/chat [on/off] - Ye bhi chatbot toggle karne ke liye shortcut hai.
+
+✨ **Features:**
+- **Unlimited Reply:** Bot har message ka fast reply dega.
+- **Flirty Nature:** Replies romantic aur flirty honge.
+- **Auto Action:** Bina tag kiye bhi bot baatein karega agar ON hai toh.
+
+Note: Agar group mein zyada spam ho raha ho, toh aap `/chatbot off` karke ise band kar sakte hain."""
+
+
+HELP_7 = """✅**<u>Extra Info:</u>**
+
+Aapka bot ab advanced AI features se लैस hai. Agar aapko koi dikkat aaye toh support group mein batayein.
+
+/ping - Bot ki speed check karein.
+/stats - Bot ke poore stats dekhein."""
